@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer de Treino - Brothers Fight Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/timer.css">
+    <!-- Font Awesome CDN para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><span class="logo bfc-font">BFC</span></a>
+            <ul>
+                <li><a href="index.html#inicio">Início</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#modalidades">Modalidades</a></li>
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#horarios">Horários</a></li>
+                <li><a href="index.html#galeria">Galeria</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+            <a href="agendamento.html" class="cta">Aula Experimental</a>
+        </nav>
+    </header>
+    
+    <main class="timer-main">
+        <!-- BFC Title -->
+        <div class="timer-header">
+            <h1 class="timer-title bfc-font">TIMER BFC</h1>
+            <p class="timer-subtitle">Cronômetro profissional para artes marciais</p>
+        </div>
+        
+        <!-- Navigation Pills -->
+        <div class="nav-pills">
+            <button class="pill active" data-mode="fight">TIMER DE LUTA</button>
+            <button class="pill" data-mode="stopwatch">CRONÔMETRO</button>
+            <button class="pill" data-mode="countdown">CONTADOR REGRESSIVO</button>
+        </div>
+
+        <!-- Fight Timer Mode -->
+        <div class="timer-mode" id="fight-mode">
+            <!-- Rounds Setting -->
+            <div class="setting-row">
+                <button class="adj-btn" id="roundsMinus">-</button>
+                <div class="setting-label">
+                    <span class="label-text">ROUNDS</span>
+                    <span class="setting-value" id="roundsValue">12</span>
+                </div>
+                <button class="adj-btn" id="roundsPlus">+</button>
+            </div>
+
+            <!-- Main Timer Display -->
+            <div class="setting-row">
+                <button class="adj-btn" id="timeMinus">-</button>
+                <div class="main-timer" id="mainTimer">03:00</div>
+                <button class="adj-btn" id="timePlus">+</button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-blocks" id="progressBlocks"></div>
+                <div class="progress-text" id="progressText">Round 1 de 12</div>
+            </div>
+
+            <!-- Break Setting -->
+            <div class="setting-row break-setting">
+                <button class="adj-btn" id="breakMinus">-</button>
+                <div class="setting-label">
+                    <span class="label-text">DESCANSO</span>
+                    <span class="setting-value" id="breakValue">01:00</span>
+                </div>
+                <button class="adj-btn" id="breakPlus">+</button>
+            </div>
+
+            <!-- Start Button -->
+            <div class="timer-controls">
+                <button class="start-btn" id="startBtn">INICIAR</button>
+                <button class="reset-btn" id="resetBtn">RESETAR</button>
+            </div>
+        </div>
+
+        <!-- Stopwatch Mode -->
+        <div class="timer-mode hidden" id="stopwatch-mode">
+            <div class="stopwatch-display" id="stopwatchDisplay">00:00:00<span class="milliseconds">.000</span></div>
+            <div class="stopwatch-controls">
+                <button class="start-btn" id="stopwatchStart">INICIAR</button>
+                <button class="reset-btn" id="stopwatchReset">RESETAR</button>
+            </div>
+        </div>
+
+        <!-- Countdown Mode -->
+        <div class="timer-mode hidden" id="countdown-mode">
+            <!-- Time Settings -->
+            <div class="time-settings">
+                <div class="time-unit">
+                    <div class="time-label">HORAS</div>
+                    <div class="time-display" id="hoursDisplay">00</div>
+                    <div class="time-controls">
+                        <button class="time-btn" data-unit="hours" data-action="plus">+</button>
+                        <button class="time-btn" data-unit="hours" data-action="minus">-</button>
+                    </div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-label">MINUTOS</div>
+                    <div class="time-display" id="minutesDisplay">05</div>
+                    <div class="time-controls">
+                        <button class="time-btn" data-unit="minutes" data-action="plus">+</button>
+                        <button class="time-btn" data-unit="minutes" data-action="minus">-</button>
+                    </div>
+                </div>
+                <div class="time-unit">
+                    <div class="time-label">SEGUNDOS</div>
+                    <div class="time-display" id="secondsDisplay">00</div>
+                    <div class="time-controls">
+                        <button class="time-btn" data-unit="seconds" data-action="plus">+</button>
+                        <button class="time-btn" data-unit="seconds" data-action="minus">-</button>
+                    </div>
+                </div>
+            </div>
+            <div class="timer-controls">
+                <button class="start-btn" id="countdownStart">INICIAR</button>
+                <button class="reset-btn" id="countdownReset">RESETAR</button>
+            </div>
+        </div>
+
+        <!-- Sound Toggle -->
+        <button class="sound-toggle" id="soundToggle">
+            <i class="fas fa-volume-up"></i>
+        </button>
+    </main>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="index.html#inicio">Início</a> |
+            <a href="index.html#sobre">Sobre</a> |
+            <a href="index.html#modalidades">Modalidades</a> |
+            <a href="index.html#equipe">Equipe</a> |
+            <a href="index.html#horarios">Horários</a> |
+            <a href="index.html#galeria">Galeria</a> |
+            <a href="index.html#contato">Contato</a>
+        </div>
+        <div class="footer-copy">© 2025 Brothers Fight Club (<span class="bfc-font">BFC</span>). Todos os direitos reservados.</div>
+    </footer>
+    
+    <script src="assets/js/timer.js"></script>
+</body>
+</html>
