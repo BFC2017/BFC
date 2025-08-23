@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agende uma Aula Experimental - Brothers Fight Club</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html"><span class="logo bfc-font">BFC</span></a>
+            <ul>
+                <li><a href="index.html#inicio">Início</a></li>
+                <li><a href="index.html#sobre">Sobre</a></li>
+                <li><a href="index.html#modalidades">Modalidades</a></li>
+                <li><a href="index.html#equipe">Equipe</a></li>
+                <li><a href="index.html#horarios">Horários</a></li>
+                <li><a href="index.html#galeria">Galeria</a></li>
+                <li><a href="timer.html">Timer</a></li>
+                <li><a href="index.html#contato">Contato</a></li>
+            </ul>
+            <a href="matricula.html" class="cta">Matricule-se</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Agende uma Aula Experimental</h2>
+                        <form class="formulario" id="agendamentoForm" autocomplete="off" novalidate>
+                                                                <div id="form-erro" class="erro-box" style="display:none;">
+                                                                    <span id="erro-close" class="erro-close">&times;</span>
+                                                                    <span id="erro-msg"></span>
+                                                                </div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">*</span><input type="text" name="nome" placeholder="Nome Completo" required></div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">&nbsp;</span><input type="email" name="email" id="email" placeholder="E-mail"></div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">*</span><input type="tel" name="telefone" id="telefone" placeholder="Telefone" required></div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">*</span>
+                                                                    <select name="modalidade" required>
+                                                                        <option value="">Escolha a modalidade</option>
+                                                                        <option value="Boxe">Boxe</option>
+                                                                        <option value="Jiujitsu">Jiujitsu</option>
+                                                                        <option value="Karate">Karate</option>
+                                                                        <option value="Kickboxing">Kickboxing</option>
+                                                                        <option value="Muaythai">Muaythai</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">*</span><input type="date" name="data" id="data" required></div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">*</span><input type="text" name="horario" placeholder="Horário" required></div>
+                                                                <div class="campo-linha"><span class="obrigatorio-input">&nbsp;</span><textarea name="observacoes" placeholder="Observações"></textarea></div>
+                                <button type="submit">Agendar Aula Grátis</button>
+                        </form>
+        <style>
+        .campo-linha {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.7rem;
+        }
+        .obrigatorio-input {
+            color: #c00;
+            font-size: 1.2em;
+            width: 1.2em;
+            min-width: 1.2em;
+            text-align: left;
+            margin-right: 0.5em;
+            pointer-events: none;
+            display: block;
+        }
+        .campo-linha input,
+        .campo-linha textarea,
+        .campo-linha select {
+            flex: 1;
+            display: block;
+        }
+        .erro-box {
+            background: #fff0f0;
+            color: #c00;
+            border: 1px solid #c00;
+            border-radius: 7px;
+            padding: 0.8em 2.5em 0.8em 1.2em;
+            margin-bottom: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            font-size: 1rem;
+            position: relative;
+        }
+        .erro-close {
+            position: absolute;
+            top: 0.5em;
+            right: 0.7em;
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #c00;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1;
+            width: 1.2em;
+            height: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background-color 0.2s ease;
+        }
+        .erro-close:hover {
+            background-color: rgba(204, 0, 0, 0.1);
+        }
+        </style>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-links">
+            <a href="index.html#inicio">Início</a> |
+            <a href="index.html#sobre">Sobre</a> |
+            <a href="index.html#modalidades">Modalidades</a> |
+            <a href="index.html#equipe">Equipe</a> |
+            <a href="index.html#horarios">Horários</a> |
+            <a href="index.html#galeria">Galeria</a> |
+            <a href="index.html#contato">Contato</a>
+        </div>
+        <div class="footer-copy">© 2025 Brothers Fight Club (<span class="bfc-font">BFC</span>). Todos os direitos reservados.</div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('agendamentoForm');
+      const erroBox = document.getElementById('form-erro');
+      const erroMsg = document.getElementById('erro-msg');
+      const erroClose = document.getElementById('erro-close');
+      const telefoneInput = document.getElementById('telefone');
+      const emailInput = document.getElementById('email');
+      const dataInput = document.getElementById('data');
+      
+      // Definir data mínima como hoje
+      const hoje = new Date();
+      const dataHoje = hoje.toISOString().split('T')[0];
+      dataInput.min = dataHoje;
+      
+      // Função para atualizar asteriscos dos campos obrigatórios
+      function atualizarAsteriscos() {
+        const camposObrigatorios = [
+          { input: form.nome, asterisco: document.querySelector('input[name="nome"]').parentElement.querySelector('.obrigatorio-input') },
+          { input: form.telefone, asterisco: document.querySelector('input[name="telefone"]').parentElement.querySelector('.obrigatorio-input') },
+          { input: form.modalidade, asterisco: document.querySelector('select[name="modalidade"]').parentElement.querySelector('.obrigatorio-input') },
+          { input: form.data, asterisco: document.querySelector('input[name="data"]').parentElement.querySelector('.obrigatorio-input') },
+          { input: form.horario, asterisco: document.querySelector('input[name="horario"]').parentElement.querySelector('.obrigatorio-input') }
+        ];
+        
+        camposObrigatorios.forEach(campo => {
+          if (campo.input.value.trim() !== '') {
+            campo.asterisco.style.visibility = 'hidden';
+          } else {
+            campo.asterisco.style.visibility = 'visible';
+          }
+        });
+      }
+      
+      // Adicionar eventos para monitorar os campos obrigatórios
+      [form.nome, form.telefone, form.modalidade, form.data, form.horario].forEach(campo => {
+        campo.addEventListener('input', atualizarAsteriscos);
+        campo.addEventListener('change', atualizarAsteriscos);
+      });
+      
+      // Bloquear seleção de sábados e domingos
+      dataInput.addEventListener('input', function(e) {
+        const dataSelecionada = new Date(e.target.value + 'T00:00:00');
+        const diaSemana = dataSelecionada.getDay(); // 0 = domingo, 6 = sábado
+        
+        if (diaSemana === 0 || diaSemana === 6) {
+          e.target.value = '';
+          erroMsg.innerHTML = '<b>Não é possível agendar aos sábados e domingos</b>';
+          erroBox.style.display = 'flex';
+        }
+      });
+      
+      // Validação do email em tempo real
+      emailInput.addEventListener('blur', function(e) {
+        const email = e.target.value.trim();
+        if (email && !isValidEmail(email)) {
+          e.target.style.borderColor = '#c00';
+          e.target.style.backgroundColor = '#fff5f5';
+        } else {
+          e.target.style.borderColor = '#ccc';
+          e.target.style.backgroundColor = '';
+        }
+      });
+      
+      // Função para validar email
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+      
+      // Formatação do telefone
+      telefoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        
+        if (value.length <= 11) {
+          if (value.length <= 2) {
+            value = value.replace(/(\d{2})/, '($1');
+          } else if (value.length <= 7) {
+            value = value.replace(/(\d{2})(\d{1,5})/, '($1) $2');
+          } else {
+            value = value.replace(/(\d{2})(\d{5})(\d{1,4})/, '($1) $2-$3');
+          }
+        } else {
+          value = value.slice(0, 11);
+          value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        }
+        
+        e.target.value = value;
+      });
+      
+      erroClose.onclick = function() {
+        erroBox.style.display = 'none';
+      };
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        erroBox.style.display = 'none';
+        let faltando = [];
+        const campos = {
+          nome: form.nome.value.trim(),
+          telefone: form.telefone.value.trim(),
+          modalidade: form.modalidade.value.trim(),
+          data: form.data.value.trim(),
+          horario: form.horario.value.trim(),
+        };
+        if (!campos.nome) faltando.push('Nome Completo');
+        if (!campos.telefone) faltando.push('Telefone');
+        if (!campos.modalidade) faltando.push('Modalidade de Interesse');
+        if (!campos.data) faltando.push('Data Preferencial');
+        if (!campos.horario) faltando.push('Horário');
+        
+        // Validação da data - não pode ser anterior a hoje
+        if (campos.data) {
+          const dataSelecionada = new Date(campos.data + 'T00:00:00');
+          const hoje = new Date();
+          hoje.setHours(0, 0, 0, 0);
+          
+          if (dataSelecionada < hoje) {
+            erroMsg.innerHTML = 'A <b>data não pode ser anterior ao dia de hoje</b>';
+            erroBox.style.display = 'flex';
+            return;
+          }
+          
+          // Validação para bloquear sábados e domingos
+          const diaSemana = dataSelecionada.getDay(); // 0 = domingo, 6 = sábado
+          if (diaSemana === 0 || diaSemana === 6) {
+            erroMsg.innerHTML = '<b>Não é possível agendar aos sábados e domingos</b>';
+            erroBox.style.display = 'flex';
+            return;
+          }
+        }
+        
+        // Validação do email se preenchido
+        const email = form.email.value.trim();
+        if (email && !isValidEmail(email)) {
+          erroMsg.innerHTML = 'Por favor, insira um <b>e-mail válido</b>';
+          erroBox.style.display = 'flex';
+          return;
+        }
+        
+        if (faltando.length > 0) {
+          erroMsg.innerHTML = 'Preencha os campos obrigatórios: <b>' + faltando.join(', ') + '</b>';
+          erroBox.style.display = 'flex';
+          return;
+        }
+                    // Monta mensagem para o WhatsApp
+                    let msg = 'Olá!%0A%0ATudo bem?%0A%0ADesejo agendar uma aula experimental!%0A%0ASeguem as informações:%0A%0A';
+                    msg += `*Nome Completo:*%0A${campos.nome}%0A%0A`;
+                    if (form.email.value.trim()) {
+                        msg += `*E-mail:*%0A${form.email.value.trim()}%0A%0A`;
+                    }
+                    msg += `*Telefone:*%0A${campos.telefone}%0A%0A`;
+                    msg += `*Modalidade de Interesse:*%0A${campos.modalidade}%0A%0A`;
+                    msg += `*Data:*%0A${campos.data.split('-').reverse().join('/')}%0A%0A`;
+                    msg += `*Horário:*%0A${campos.horario}%0A%0A`;
+                    if (form.observacoes.value.trim()) {
+                        msg += `*Observações:*%0A${form.observacoes.value.trim()}`;
+                    } else {
+                        // Remove a última quebra de linha dupla se não há observações
+                        msg = msg.slice(0, -6);
+                    }
+                    window.open('https://wa.me/5562999284868?text=' + msg, '_blank');
+                });
+            });
+        </script>
+    </body>
+</html>
