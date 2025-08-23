@@ -9,6 +9,7 @@ class TimerApp {
         
         // AudioContext singleton para melhor performance
         this.audioContext = null;
+    this.audioUnlocked = false; // Flag para iOS / mobile
         
         // Fight Timer Settings
         this.rounds = 12;
@@ -39,6 +40,9 @@ class TimerApp {
         
         // Preload AudioContext para melhor responsividade
         this.preloadAudio();
+
+    // Configura desbloqueio de áudio (inócuo em desktop / Android)
+    this.setupAudioUnlock();
     }
     
     // Preload do AudioContext
@@ -730,9 +734,35 @@ class TimerApp {
         icon.className = this.soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
     }
     
-    // Método para obter AudioContext singleton
-    getAudioContext() {
-        if (!this.audioContext) {
+    // === Desbloqueio de áudio (necessário para iOS) ===
+    setupAudioUnlock() {
+        const unlockHandler = () => this.unlockAudio();
+        ['touchstart','touchend','mousedown','keydown','click'].forEach(evt => {
+            document.addEventListener(evt, unlockHandler, { once: true, passive: true });
+        });
+    }
+
+    unlockAudio() {
+        if (this.audioUnlocked) return;
+        const ctx = this.getAudioContext(true);
+        if (!ctx) return;
+        try {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+            osc.frequency.value = 440;
+            osc.connect(gain).connect(ctx.destination);
+            osc.start();
+            osc.stop(ctx.currentTime + 0.02);
+            this.audioUnlocked = true;
+        } catch(e) {
+            console.warn('Falha ao desbloquear áudio:', e);
+        }
+    }
+
+    // Método para obter / criar AudioContext (com opção force)
+    getAudioContext(force = false) {
+        if (!this.audioContext || force) {
             try {
                 this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             } catch (error) {
@@ -740,34 +770,38 @@ class TimerApp {
                 return null;
             }
         }
+        if (this.audioContext.state === 'suspended') {
+            this.audioContext.resume().catch(()=>{});
+        }
         return this.audioContext;
     }
-    
+
     playSound(type) {
         if (!this.soundEnabled) return;
-        
         const audioContext = this.getAudioContext();
-        if (!audioContext) {
-            console.warn('Audio não disponível');
-            return;
+        if (!audioContext) return;
+        if (audioContext.state === 'suspended') {
+            audioContext.resume().then(()=>this._dispatchSound(type)).catch(()=>{});
+        } else {
+            this._dispatchSound(type);
         }
-        
+    }
+
+    _dispatchSound(type) {
         switch (type) {
             case 'start':
             case 'round':
-                this.playBoxingBell(audioContext);
+                this.playBoxingBell(this.audioContext);
                 break;
             case 'break':
-                this.playDoubleBoxingBell(audioContext);
+                this.playDoubleBoxingBell(this.audioContext);
                 break;
             case 'warning':
-                this.playShortBell(audioContext);
+                this.playShortBell(this.audioContext);
                 break;
             case 'finish':
-                this.playTripleBoxingBell(audioContext);
+                this.playTripleBoxingBell(this.audioContext);
                 break;
-            default:
-                return;
         }
     }
     
@@ -898,10 +932,8 @@ document.addEventListener('visibilitychange', () => {
     
     // Gerenciar áudio baseado na visibilidade da página
     if (timerApp && timerApp.audioContext) {
-        if (document.hidden) {
-            timerApp.audioContext.suspend();
-        } else {
-            timerApp.audioContext.resume();
+        if (!document.hidden) {
+            timerApp.audioContext.resume().catch(()=>{});
         }
     }
 });
