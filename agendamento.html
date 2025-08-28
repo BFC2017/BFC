@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Redirecionando...</title>
+	<meta name="robots" content="noindex">
+	<script>
+	(function() {
+		var folder = 'agendamento/';
+		if (location.protocol === 'file:') {
+			// Abrindo direto do disco: precisamos apontar explicitamente para o arquivo
+			location.replace(folder + 'index.html');
+		} else {
+			// Ambiente HTTP/HTTPS: manter URL limpa com barra final
+			if (!/\/_?$/.test(location.pathname)) {
+				// Garante barra final
+				location.replace('./' + folder);
+			} else if (!location.pathname.endsWith('/agendamento/')) {
+				location.replace('./' + folder);
+			} // Caso já esteja /agendamento/ o servidor deve servir index.html
+		}
+	})();
+	</script>
+	<noscript>Se não redirecionar automaticamente abra <a href="agendamento/index.html">agendamento/index.html</a>.</noscript>
+</head>
+<body>Redirecionando...</body>
+</html>

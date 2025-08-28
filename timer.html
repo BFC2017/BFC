@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Redirecionando...</title>
+	<meta name="robots" content="noindex">
+	<script>
+	(function() {
+		var folder = 'timer/';
+		if (location.protocol === 'file:') {
+			location.replace(folder + 'index.html');
+		} else {
+			if (!location.pathname.endsWith('/timer/')) {
+				location.replace('./' + folder);
+			}
+		}
+	})();
+	</script>
+	<noscript>Se não redirecionar automaticamente abra <a href="timer/index.html">timer/index.html</a>.</noscript>
+</head>
+<body>Redirecionando...</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Timer BFC</title>
+	<link rel="icon" type="image/png" href="../assets/images/logo.png">
+	<link rel="shortcut icon" type="image/png" href="../assets/images/logo.png">
+	<link rel="stylesheet" href="../assets/css/style.css" />
+	<link rel="stylesheet" href="../assets/css/timer.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+	<header>
+		<nav>
+			<a href="../index.html" class="logo bfc-font">BFC</a>
+			<ul>
+				<li><a href="../index.html#inicio">Início</a></li>
+				<li><a href="../index.html#sobre">Sobre</a></li>
+				<li><a href="../index.html#modalidades">Modalidades</a></li>
+				<li><a href="../index.html#equipe">Equipe</a></li>
+				<li><a href="../index.html#horarios">Horários</a></li>
+				<li><a href="../index.html#galeria">Galeria</a></li>
+				<li><a href="../index.html#contato">Contato</a></li>
+			</ul>
+			<a href="../agendamento/" class="cta" data-fallback="../agendamento/index.html">Aula Experimental</a>
+		</nav>
+	</header>
+	<main class="timer-main">
+		<div class="timer-header">
+			<h1 class="timer-title">TIMER BFC</h1>
+			<p class="timer-subtitle">Controle de rounds, cronômetro e contagem regressiva</p>
+		</div>
+		<div class="nav-pills">
+			<button class="pill active" data-mode="fight">ROUND TIMER</button>
+			<button class="pill" data-mode="stopwatch">CRONÔMETRO</button>
+			<button class="pill" data-mode="countdown">COUNTDOWN</button>
+		</div>
+		<section id="fight-mode" class="timer-mode">
+			<div class="setting-row">
+				<button class="adj-btn" id="roundsMinus">-</button>
+				<div class="setting-label">
+					<span class="label-text">ROUNDS</span>
+					<span class="setting-value" id="roundsValue">12</span>
+				</div>
+				<button class="adj-btn" id="roundsPlus">+</button>
+			</div>
+			<div class="setting-row">
+				<button class="adj-btn" id="timeMinus">-</button>
+				<div class="setting-label">
+					<span class="label-text">TEMPO</span>
+					<span class="setting-value" id="mainTimer">03:00</span>
+				</div>
+				<button class="adj-btn" id="timePlus">+</button>
+			</div>
+			<div class="setting-row break-setting">
+				<button class="adj-btn" id="breakMinus">-</button>
+				<div class="setting-label">
+					<span class="label-text">INTERVALO</span>
+						<span class="setting-value" id="breakValue">01:00</span>
+				</div>
+				<button class="adj-btn" id="breakPlus">+</button>
+			</div>
+			<div class="progress-container">
+				<div id="progressBlocks" class="progress-blocks"></div>
+				<div id="progressText" class="progress-text">Round 1 de 12</div>
+			</div>
+			<div class="timer-controls">
+				<button id="startBtn" class="start-btn">INICIAR</button>
+				<button id="resetBtn" class="reset-btn">RESET</button>
+			</div>
+		</section>
+		<section id="stopwatch-mode" class="timer-mode hidden">
+			<div class="stopwatch-display" id="stopwatchDisplay">00:00:00<span class="milliseconds">.000</span></div>
+			<div class="timer-controls">
+				<button id="stopwatchStart" class="start-btn">INICIAR</button>
+				<button id="stopwatchReset" class="reset-btn">RESET</button>
+			</div>
+		</section>
+		<section id="countdown-mode" class="timer-mode hidden">
+			<div class="time-settings">
+				<div class="time-unit">
+					<button class="time-btn" data-unit="hours" data-action="plus">+</button>
+					<span class="time-label">HORAS</span>
+					<h2 class="time-display" id="hoursDisplay">00</h2>
+					<button class="time-btn" data-unit="hours" data-action="minus">-</button>
+				</div>
+				<div class="time-unit">
+					<button class="time-btn" data-unit="minutes" data-action="plus">+</button>
+					<span class="time-label">MINUTOS</span>
+					<h2 class="time-display" id="minutesDisplay">05</h2>
+					<button class="time-btn" data-unit="minutes" data-action="minus">-</button>
+				</div>
+				<div class="time-unit">
+					<button class="time-btn" data-unit="seconds" data-action="plus">+</button>
+					<span class="time-label">SEGUNDOS</span>
+					<h2 class="time-display" id="secondsDisplay">00</h2>
+					<button class="time-btn" data-unit="seconds" data-action="minus">-</button>
+				</div>
+			</div>
+			<div class="timer-controls">
+				<button id="countdownStart" class="start-btn">INICIAR</button>
+				<button id="countdownReset" class="reset-btn">RESET</button>
+			</div>
+		</section>
+		<button id="soundToggle" class="sound-toggle" title="Som"><i class="fas fa-volume-up"></i></button>
+	</main>
+	<footer>
+		<div class="footer-top-accent"></div>
+		<div class="footer-grid">
+			<div class="footer-col footer-brand">
+				<h3 class="bfc-font">BFC</h3>
+				<p>Desde 2017 transformando vidas através das artes marciais.</p>
+				<div class="social-mini">
+					<a href="https://www.instagram.com/bfc_brothersfightclub?igsh=Z3NjMnc5bzZ0dXQ3&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+					<a href="https://wa.me/5562999087037" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+					<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+					<a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+				</div>
+			</div>
+			<div class="footer-col">
+				<h4>Navegação</h4>
+				<ul class="footer-links">
+					<li><a href="../index.html#inicio">Início</a></li>
+					<li><a href="../index.html#sobre">Sobre</a></li>
+					<li><a href="../index.html#modalidades">Modalidades</a></li>
+					<li><a href="../index.html#equipe">Treinadores</a></li>
+					<li><a href="../index.html#horarios">Horários</a></li>
+					<li><a href="../index.html#galeria">Galeria</a></li>
+					<li><a href="../index.html#contato">Contato</a></li>
+				</ul>
+			</div>
+			<div class="footer-col footer-modalidades">
+				<h4>Modalidades</h4>
+				<ul class="footer-simple">
+					<li>Boxe</li><li>Jiu-Jítsu</li><li>Karatê</li><li>Kickboxing</li><li>Muay Thai</li>
+				</ul>
+			</div>
+			<div class="footer-col">
+				<h4>Contato</h4>
+				<ul class="footer-contact">
+					<li><i class="fas fa-location-dot"></i> Bela Vista de Goiás - GO</li>
+					<li><i class="fas fa-phone"></i> (62) 99908-7037</li>
+					<li><i class="fas fa-envelope"></i> bfc_brothersfightclub@outlook.com</li>
+				</ul>
+				<a href="../agendamento/" data-fallback="../agendamento/index.html" class="footer-cta">Aula Experimental</a>
+			</div>
+		</div>
+		<div class="footer-bottom"><span class="footer-copy">© <span id="year"></span> Brothers Fight Club (<span class="bfc-font">BFC</span>). Todos os direitos reservados.</span></div>
+	</footer>
+	<script src="../assets/js/timer.js"></script>
+	<script src="../assets/js/main.js"></script>
+</body>
+</html>
