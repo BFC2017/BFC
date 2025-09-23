@@ -1,0 +1,8 @@
+[
+  {"modalidade":"Boxe","manha":"07h - 08h","noite":"19h - 20h","nivel":"Todos os níveis"},
+  {"modalidade":"Jiu-Jítsu","manha":"08h - 09h","noite":"20h - 21h","nivel":"Todos os níveis"},
+  {"modalidade":"Karatê","manha":"09h - 10h","noite":"18h - 19h","nivel":"Todos os níveis"},
+  {"modalidade":"Kickboxing","manha":"06h - 07h","noite":"21h - 22h","nivel":"Todos os níveis"},
+  {"modalidade":"Muay Thai","manha":"10h - 11h","noite":"17h - 18h","nivel":"Todos os níveis"},
+  {"modalidade":"Turma Kids","manha":"-","noite":"17h - 18h","nivel":"5 a 10 anos"}
+]
