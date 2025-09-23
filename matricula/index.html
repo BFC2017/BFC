@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matrícula - Brothers Fight Club | Faça sua Inscrição</title>
+  <meta name="description" content="Faça sua matrícula no Brothers Fight Club. Inscreva-se nas modalidades de Boxe, Jiu-Jítsu, Karatê, Kickboxing e Muay Thai em Bela Vista de Goiás. Transforme sua vida através das artes marciais.">
+  <meta name="keywords" content="matricula BFC, inscrição artes marciais, matrícula academia luta, bela vista de goias, brothers fight club">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Matrícula - Brothers Fight Club">
+  <meta property="og:description" content="Transforme sua vida através das artes marciais. Faça sua matrícula no BFC e comece sua jornada nas artes marciais hoje mesmo!">
+  <meta property="og:image" content="../assets/images/logo.png">
+  <meta property="og:url" content="https://bfc-brothersfightclub.com/matricula/">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://bfc-brothersfightclub.com/matricula/">
+  <link rel="icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400&family=Oswald:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html"><span class="logo bfc-font">BFC</span></a>
+      <ul>
+        <li><a href="../index.html#inicio">Início</a></li>
+        <li><a href="../index.html#sobre">Sobre</a></li>
+        <li><a href="../index.html#modalidades">Modalidades</a></li>
+        <li><a href="../index.html#equipe">Equipe</a></li>
+        <li><a href="../index.html#horarios">Horários</a></li>
+        <li><a href="../index.html#galeria">Galeria</a></li>
+        <li><a href="../index.html#contato">Contato</a></li>
+        <li><a href="../timer/" data-fallback="../timer/index.html">Timer</a></li>
+      </ul>
+  <a href="../agendamento/" class="cta" data-fallback="../agendamento/index.html">Agendar Aula</a>
+    </nav>
+  </header>
+  <main>
+    <section class="mod-detalhe">
+      <div class="mod-header">
+        <div class="mod-header-text" style="text-align:center;width:100%;display:flex;flex-direction:column;align-items:center;">
+          <h1 style="width:100%;">MATRÍCULA</h1>
+          <p class="tagline" style="width:100%;">Garanta sua vaga e inicie a evolução</p>
+          <!-- Botão removido conforme solicitação -->
+        </div>
+      </div>
+      <div class="mod-body">
+  <h2 class="center-narrow">Como funciona</h2>
+  <p class="center-narrow">Escolha a modalidade, converse com nossa equipe e defina o melhor plano para seus objetivos. Planos flexíveis e foco em acompanhamento técnico.</p>
+  <h3 style="margin-top:2rem; text-align:center;">Pré-Matrícula</h3>
+        <form class="formulario" id="form-matricula" autocomplete="on" novalidate>
+          <!-- Honeypot antispam -->
+          <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" aria-hidden="true">
+
+          <label for="nome">Nome completo *</label>
+          <input id="nome" type="text" name="nome" placeholder="Ex: João Silva" autocomplete="name" required />
+
+          <label for="data_nascimento">Data de nascimento *</label>
+          <input id="data_nascimento" type="date" name="data_nascimento" required />
+
+          <label for="telefone">Telefone *</label>
+          <input id="telefone" type="tel" name="telefone" placeholder="(62) 99999-9999" inputmode="tel" autocomplete="tel" required />
+
+          <label for="email">E-mail</label>
+          <input id="email" type="email" name="email" placeholder="voce@exemplo.com" autocomplete="email" />
+
+          <label for="modalidade">Modalidade *</label>
+          <select id="modalidade" name="modalidade" required>
+            <option value="" disabled selected>Selecione</option>
+            <option>Boxe</option>
+            <option>Jiu-Jítsu</option>
+            <option>Karatê</option>
+            <option>Kickboxing</option>
+            <option>Muay Thai</option>
+          </select>
+
+          <label for="plano">Plano *</label>
+          <select id="plano" name="plano" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="mensal">Mensal - R$ 140,00</option>
+            <option value="karate">Karatê - R$ 120,00</option>
+            <option value="acesso_livre">Acesso Livre - R$ 160,00</option>
+            <option value="trimestral">Trimestral - R$ 290,00</option>
+            <option value="acesso_livre_trimestral">Acesso Livre Trimestral - R$ 375,00</option>
+            <option value="anual">Anual - R$ 1.100,00</option>
+          </select>
+
+          <label for="inicio">Data de início</label>
+          <input id="inicio" type="date" name="inicio" />
+
+          <label for="horario">Horário *</label>
+          <input id="horario" type="time" name="horario" required />
+
+          <label for="observacoes">Observações</label>
+          <textarea id="observacoes" name="observacoes" rows="3" placeholder="Algo mais que devamos saber"></textarea>
+          <button type="submit" id="btn-enviar" style="margin-top:0.5rem;">Concluir Pré-Matrícula</button>
+          <small style="color:#555;line-height:1.4;">Campos marcados com * são obrigatórios.</small>
+        </form>
+  <!-- CTAs removidos conforme solicitação -->
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-top-accent"></div>
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <h3 class="bfc-font">BFC</h3>
+        <p>Desde 2017 transformando vidas através das artes marciais.</p>
+        <div class="social-mini">
+          <a href="https://www.instagram.com/bfc_brothersfightclub?igsh=Z3NjMnc5bzZ0dXQ3&utm_source=qr" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5562999087037" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul class="footer-links">
+          <li><a href="../index.html#inicio">Início</a></li>
+          <li><a href="../index.html#sobre">Sobre</a></li>
+          <li><a href="../index.html#modalidades">Modalidades</a></li>
+          <li><a href="../index.html#equipe">Treinadores</a></li>
+          <li><a href="../index.html#horarios">Horários</a></li>
+          <li><a href="../index.html#galeria">Galeria</a></li>
+          <li><a href="../index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-modalidades">
+        <h4>Modalidades</h4>
+        <ul class="footer-simple">
+          <li>Boxe</li><li>Jiu-Jítsu</li><li>Karatê</li><li>Kickboxing</li><li>Muay Thai</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul class="footer-contact">
+          <li><i class="fas fa-location-dot"></i> Bela Vista de Goiás - GO</li>
+          <li><i class="fas fa-phone"></i> (62) 99908-7037</li>
+          <li><i class="fas fa-envelope"></i> bfc_brothersfightclub@outlook.com</li>
+        </ul>
+        <a href="../agendamento/" data-fallback="../agendamento/index.html" class="footer-cta">Aula Experimental</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span class="footer-copy">© <span id="year"></span> Brothers Fight Club (<span class="bfc-font">BFC</span>). Todos os direitos reservados.</span></div>
+  </footer>
+  <button id="to-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+  <script src="../assets/js/main.js"></script>
+  <script>
+  // Intercepta envio e monta mensagem para WhatsApp + máscara telefone + validação de email
+  (function(){
+    const form = document.getElementById('form-matricula');
+    if(!form) return;
+    const whatsappNumber = '5562999087037'; // Número destino
+
+    const phoneInput = form.telefone;
+    const emailInput = form.email;
+    const inicioInput = form.inicio;
+
+    // Configuração de data mínima (hoje) e bloqueio de finais de semana
+    if(inicioInput){
+      const today = new Date();
+      const pad = (n) => String(n).padStart(2,'0');
+      const todayStr = `${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
+      inicioInput.min = todayStr;
+
+      const validateStartDate = () => {
+        if(!inicioInput.value) { inicioInput.setCustomValidity(''); return; }
+        const sel = new Date(inicioInput.value + 'T00:00:00');
+        const now = new Date();
+        // Normaliza hoje (sem hora)
+        const todayMid = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        if(sel < todayMid){
+          inicioInput.setCustomValidity('Selecione uma data igual ou posterior a hoje.');
+        } else if(sel.getDay() === 0 || sel.getDay() === 6){
+          inicioInput.setCustomValidity('Não é possível iniciar no sábado ou domingo.');
+        } else {
+          inicioInput.setCustomValidity('');
+        }
+        if(!inicioInput.checkValidity()) inicioInput.reportValidity();
+      };
+      inicioInput.addEventListener('change', validateStartDate);
+      inicioInput.addEventListener('blur', validateStartDate);
+    }
+
+    // Máscara dinâmica de telefone (BR) mantendo somente dígitos base internamente
+    phoneInput.addEventListener('input', function(){
+      let digits = this.value.replace(/\D/g, '').slice(0,11);
+      let formatted = digits;
+      if(digits.length > 2) {
+        if(digits.length <= 6) {
+          // (AA) NNNN
+          formatted = `(${digits.slice(0,2)}) ${digits.slice(2)}`;
+        } else if(digits.length <= 10) {
+          // (AA) NNNN-NNNN
+          formatted = `(${digits.slice(0,2)}) ${digits.slice(2,6)}-${digits.slice(6)}`;
+        } else {
+          // (AA) NNNNN-NNNN (celular 11 dígitos)
+          formatted = `(${digits.slice(0,2)}) ${digits.slice(2,7)}-${digits.slice(7)}`;
+        }
+      }
+      this.value = formatted;
+    });
+
+    // Validação customizada de email (reforço ao type=email)
+    if(emailInput){
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+      emailInput.addEventListener('blur', function(){
+        if(this.value.trim() && !emailRegex.test(this.value.trim())) {
+          this.setCustomValidity('Informe um e-mail válido (ex: nome@dominio.com)');
+          this.reportValidity();
+        } else {
+          this.setCustomValidity('');
+        }
+      });
+      emailInput.addEventListener('input', function(){ this.setCustomValidity(''); });
+    }
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      // Honeypot
+      if(form.website && form.website.value.trim() !== '') {
+        return; // Possível bot
+      }
+
+      // Preparar telefone (sanitizado antes da validação manual)
+      const rawDigits = (form.telefone.value || '').replace(/\D/g,'');
+      if(rawDigits.length < 10 || rawDigits.length > 11) {
+        alert('Telefone inválido: use DDD + número (10 ou 11 dígitos).');
+        form.telefone.focus();
+        return;
+      }
+
+      // Validação HTML5 + custom email
+      if(!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const getVal = (name) => (form[name] ? form[name].value.trim() : '');
+      const onlyDigits = (v) => v.replace(/\D/g,'');
+
+      // Sanitiza telefones
+  const telefone = onlyDigits(getVal('telefone'));
+      const contatoEmergTel = onlyDigits(getVal('contato_emergencia_telefone'));
+
+      const formatDate = (iso) => {
+        if(!iso) return '';
+        const parts = iso.split('-');
+        return parts.length === 3 ? parts.reverse().join('/') : iso;
+      };
+
+  const linhas = [];
+  linhas.push('Olá, eu gostaria de fazer uma *Pré-matrícula BFC*!');
+  linhas.push('');
+  linhas.push('*Nome:* ' + getVal('nome'));
+  linhas.push('*Nascimento:* ' + formatDate(getVal('data_nascimento')));
+  linhas.push('*Telefone:* +' + (telefone ? '55 ' + telefone : ''));
+  if(getVal('email')) linhas.push('*Email:* ' + getVal('email'));
+  linhas.push('*Modalidade:* ' + getVal('modalidade'));
+  // Extrai nome e preço do plano escolhido (se contiver " - R$")
+  (function(){
+    const planoSelect = document.getElementById('plano');
+    if(planoSelect && planoSelect.selectedIndex > 0){
+      const label = planoSelect.options[planoSelect.selectedIndex].textContent.trim();
+      let nome = label, preco = '';
+      const sep = label.split(' - R$');
+      if(sep.length === 2){
+        nome = sep[0];
+        preco = 'R$ ' + sep[1];
+      }
+      linhas.push('*Plano:* ' + nome + (preco ? ' (' + preco + ')' : ''));
+    }
+  })();
+  if(getVal('inicio')) linhas.push('*Início:* ' + formatDate(getVal('inicio')));
+  linhas.push('*Horário:* ' + getVal('horario'));
+  if(getVal('observacoes')) linhas.push('*Observações:* ' + getVal('observacoes'));
+  const mensagem = encodeURIComponent(linhas.join('\n'));
+      const url = 'https://wa.me/' + whatsappNumber + '?text=' + mensagem;
+
+      // Abre em nova aba / app
+      window.open(url, '_blank');
+
+      // Feedback simples no botão
+      const btn = document.getElementById('btn-enviar');
+      if(btn){
+        btn.disabled = true;
+        const original = btn.textContent;
+        btn.textContent = 'Abrindo WhatsApp...';
+        setTimeout(()=>{ btn.disabled = false; btn.textContent = original; }, 3000);
+      }
+    });
+  })();
+
+  // Fallback para abrir arquivos localmente nas subpastas
+  (function(){
+    if(location.protocol==='file:'){
+      document.querySelectorAll('a[data-fallback]').forEach(a=>a.href=a.dataset.fallback);
+    }
+  })();
+  </script>
+</body>
+</html>
